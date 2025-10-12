@@ -1,0 +1,2 @@
+# 忽略 rust 目录下所有子项目的 target
+rust/**/target/
