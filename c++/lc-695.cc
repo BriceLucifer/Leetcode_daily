@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <functional>
 #include <vector>
 
@@ -21,7 +22,7 @@ public:
             for(int j = 0; j < col; j++){
                 if (grid[i][j] == 1){
                     auto temp = dfs_with_return(i, j);
-                    area = area >= temp ? area : temp;
+                    area = max(temp, area);
                 }
             }
         }
