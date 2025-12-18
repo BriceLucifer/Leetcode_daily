@@ -49,6 +49,14 @@ public:
 
 
 int main(){
-    cout << "\n";
+    auto mat = vector<vector<int>>{{0, 0, 0}, {0, 1, 0} , {1, 1, 1}};
+    auto s = Solution();
+    auto result = s.updateMatrix(mat);
+    for (auto &v: result){
+        for (auto &i: v){
+            cout << i << ' ';
+        }
+        cout << '\n';
+    }
     return 0;
 }
