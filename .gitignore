@@ -1,2 +1,4 @@
 # 忽略 rust 目录下所有子项目的 target
 rust/**/target/
+# 忽略 c++ 目录下所有的a.out
+c++/a.out
