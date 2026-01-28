@@ -32,11 +32,3 @@ public:
         return (int)dfs(1);
     }
 };
-
-
-
-int main(){
-
-    cout << '\n';
-    return 0;
-}
