@@ -9,6 +9,7 @@ using namespace std;
 class Solution {
 public:
     int minCost(int n, vector<vector<int>>& edges) {
+        if (n == 2) return edges.front()[2];
 
         // adj[u] 里存的是：从 u 出发能走到的 (v, cost)
         // 这是“邻接表”表示法：适合稀疏图，遍历某个点的所有出边很快 O(outdegree)
