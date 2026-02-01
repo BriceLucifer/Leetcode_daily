@@ -1,5 +1,15 @@
 CompileFlags:
   Add:
-    - -std=c++26
-    - -I/opt/homebrew/opt/llvm/include
-    - -L/opt/homebrew/opt/llvm/lib
+    # 使用 Clang 实际支持的 C++26（2c）
+    - -std=c++2c
+
+    # 强制使用 LLVM 的 libc++（不是 Apple 自带那套）
+    - --stdlib=libc++
+
+    # C++ 标准库头文件（真正的 vector / ranges / expected 在这里）
+    - -isystem
+    - /opt/homebrew/opt/llvm/include/c++/v1
+
+    # Clang 自身的 builtin / intrinsics（不加会有奇怪红线）
+    - -isystem
+    - /opt/homebrew/opt/llvm/lib/clang/19/include
