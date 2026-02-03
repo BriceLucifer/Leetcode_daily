@@ -1,4 +1,3 @@
-
 #include <string>
 #include <climits>
 using namespace std;
@@ -35,6 +34,6 @@ public:
         long long ans = result * sign;
         if (ans > INT_MAX) return INT_MAX;
         if (ans < INT_MIN) return INT_MIN;
-        return (int)ans;
+        return static_cast<int>(ans);
     }
 };
