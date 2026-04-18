@@ -9,17 +9,15 @@ public:
         // dp "hello world"
         if (n == 1) return 1;
         if (n == 2) return 2;
+        int dp[1024];
 
-        auto prev {1};
-        auto next {2};
-        auto sum {0};
+        dp[1] = {1};
+        dp[2] = {2};
         for (auto i = 3; i <= n; i++) {
-            sum = prev + next;
-            prev = next;
-            next = sum;
+            dp[i] = dp[i-1] + dp[i-2];
         }
 
-        return sum;
+        return dp[n];
     }
 };
 
