@@ -10,7 +10,7 @@ public:
         for(auto &c: magazine){
             map[c] += 1;
         }
-        auto result {false};
+
         for(auto &c: ransomNote){
             if (map[c] > 0){
                 map[c] -= 1;

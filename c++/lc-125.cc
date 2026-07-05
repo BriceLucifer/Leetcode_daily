@@ -1,37 +1,35 @@
 #include <string>
+#include <cctype>
 
 using namespace std;
 
 class Solution {
 public:
     bool isPalindrome(string s) {
-        // 先处理大小写
-        string ss {};
-
-        for(auto &c: s){
-            if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z') {
-                auto cc = c;
-                if (cc >= 'A' && cc <= 'Z'){
-                    cc |= (1 << 5);
-                }
-                ss.push_back(cc);
+    	// dealing with upper and lower case string
+    	// the idea is to select the alphabatic then convert the upper case to lowwer case and choose the number
+    	auto begin = 0;
+    	int end = s.length() - 1;
+        for(; begin < end; ){
+            if (!isalnum(s[begin])) {
+                begin ++;
+                continue;
             }
 
-            if (c >= '0' && c <= '9'){
-                ss.push_back(c);
+            if (!isalnum(s[end])) {
+                end --;
+                continue;
             }
+
+            auto c1 = tolower(s[begin]);
+            auto c2 = tolower(s[end]);
+            if (c1 != c2){
+                return false;
+            }
+            begin++, end--;
         }
 
-        bool result = true;
+        return true;
 
-        const int len = ss.size();
-        for(int i = 0, j = len - 1; i < j; i++, j--){
-            if (ss[i] != ss[j]) {
-                result = false;
-                break;
-            }
-        }
-
-        return result;
     }
 };
