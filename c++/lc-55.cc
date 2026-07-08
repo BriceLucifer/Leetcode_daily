@@ -1,3 +1,4 @@
+
 #include <algorithm>
 #include <vector>
 
@@ -8,7 +9,6 @@ public:
     bool canJump(vector<int>& nums) {
         const int length = nums.size();
         if (length == 1) return true;
-        if (nums.front() == 0) return false;
 
         auto maxReach {0};
         for(int i = 0; i < length - 1; i++){

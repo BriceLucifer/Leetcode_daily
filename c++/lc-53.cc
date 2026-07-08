@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <climits>
 #include <vector>
 
 using namespace std;
@@ -8,12 +9,11 @@ class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
         auto result = INT_MIN;
-        auto cursum = 0;
-        // nums = [-2,1,-3,4,-1,2,1,-5,4]
+        auto cur = 0;
 
-        for(int i = 0; i < nums.size(); i++){
-            cursum = max(nums[i], cursum + nums[i]);
-            result = max(result, cursum);
+        for(auto n: nums){
+            cur = max(n, cur + n);
+            result = max(cur, result);
         }
 
         return result;
