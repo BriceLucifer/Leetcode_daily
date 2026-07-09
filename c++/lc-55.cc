@@ -12,6 +12,7 @@ public:
 
         auto maxReach {0};
         for(int i = 0; i < length - 1; i++){
+            // mean you can not go to this index if index is greater than current max reach;
             if (i > maxReach) return false;
             else {
                 maxReach = max(maxReach, i+nums[i]);
